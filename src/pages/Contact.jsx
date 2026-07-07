@@ -81,7 +81,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h5 className="fw-bold theme-text mb-1" data-lang="contact_office">Office Address</h5>
-                                    <p className="theme-text-muted mb-0">Dhaka, Bangladesh</p>
+                                    <p className="theme-text-muted mb-0">kha-12/2,(3rd Floor), progoti Soroni, Shajadpur, Gulshan, Dhaka-1212, Bangladesh</p>
                                 </div>
                             </div>
 
@@ -91,8 +91,10 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h5 className="fw-bold theme-text mb-1" data-lang="contact_phone">Phone Number</h5>
+                                    <p className="theme-text-muted mb-0">+880 1713990042</p>
                                     <p className="theme-text-muted mb-0">+880 1818861685</p>
-                                </div>
+                                </div> 
+                                
                             </div>
 
                             <div className="contact-info-card d-flex align-items-center mb-4 p-3 rounded-3 theme-card shadow-sm border-0">
@@ -101,13 +103,14 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h5 className="fw-bold theme-text mb-1" data-lang="contact_email">Email Address</h5>
-                                    <p className="theme-text-muted mb-0">info@annaswelfare.org</p>
+                                    <p className="theme-text-muted mb-0">info.annaswelfarefoundation@gmail.com</p>
                                 </div>
                             </div>
 
                             <h5 className="fw-bold theme-text mt-5 mb-3" data-lang="contact_social">Follow Us</h5>
                             <div className="d-flex gap-3">
-                                <a href="#" className="social-icon-btn"><i className="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.facebook.com/share/1BoH6pn7P5" className="social-icon-btn"><i className="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.linkedin.com/company/annas-welfare-foundation" className="social-icon-btn"><i className="fa-brands fa-linkedin-in"></i></a>
                                 <a href="#" className="social-icon-btn"><i className="fa-brands fa-twitter"></i></a>
                                 <a href="#" className="social-icon-btn"><i className="fa-brands fa-instagram"></i></a>
                                 <a href="#" className="social-icon-btn"><i className="fa-brands fa-youtube"></i></a>

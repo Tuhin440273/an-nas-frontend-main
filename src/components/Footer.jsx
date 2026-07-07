@@ -19,10 +19,12 @@ const Footer = () => {
                             spreading kindness, humanity, and support to make a better future for everyone.</p>
                         <h5 className="fw-bold theme-text mt-5 mb-3" data-lang="contact_social">Follow Us</h5>
                         <div className="d-flex gap-3">
-                            <a href="#" className="social-icon-btn"><i className="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/share/1BoH6pn7P5" className="social-icon-btn"><i className="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/company/annas-welfare-foundation" className="social-icon-btn"><i className="fa-brands fa-linkedin-in"></i></a>
                             <a href="#" className="social-icon-btn"><i className="fa-brands fa-twitter"></i></a>
                             <a href="#" className="social-icon-btn"><i className="fa-brands fa-instagram"></i></a>
                             <a href="#" className="social-icon-btn"><i className="fa-brands fa-youtube"></i></a>
+                            
                         </div>
                     </div>
                     <div className="col-lg-4">
@@ -41,6 +43,8 @@ const Footer = () => {
                             Gulshan,Dhaka-1212, Bangladesh</span></p>
 
                         <p style={{ opacity: 0.8 }}><i className="fa-solid fa-phone me-2"></i> <span
+                            data-lang="footer_phone_1">+880 1713990042</span></p>
+                        <p style={{ opacity: 0.8 }}><i className="fa-solid fa-phone me-2"></i> <span
                             data-lang="footer_phone_1">+880 1818861685</span></p>
                         <p style={{ opacity: 0.8 }}><i className="fa-solid fa-phone me-2"></i> <span
                             data-lang="footer_phone_2">+880 1714962854</span></p>
@@ -48,7 +52,7 @@ const Footer = () => {
                             data-lang="footer_phone_3">+880 1813205962</span></p>
 
                         <p style={{ opacity: 0.8 }}><i className="fa-solid fa-envelope me-2"></i> <span
-                            data-lang="footer_email">info@annaswelfare.org</span></p>
+                            data-lang="footer_email">info.annaswelfarefoundation@gmail.com</span></p>
                     </div>
                 </div>
                 <hr className="mt-4 mb-3 border-secondary" />
