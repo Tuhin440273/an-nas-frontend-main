@@ -241,7 +241,7 @@ body.dark-mode .btn-outline-primary-custom:hover {
    5. HEADER, NAVBAR & BRAND
 ========================================= */
 .custom-navbar {
-    background-color: rgb(187, 209, 206) !important; 
+    background-color: rgb(26, 71, 65) !important; 
     padding: 8px 0 !important;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     z-index: 1030; 
@@ -258,15 +258,21 @@ body.dark-mode .btn-outline-primary-custom:hover {
 }
 
 .nav-logo { 
-    height: 95px; 
+    height: 55px; 
     width: auto; 
     object-fit: contain; 
-    transition: 0.3s ease; 
     
+    /* হালকা গোল (Rounded Corners) করার জন্য */
+    border-radius: 0px; 
+    
+    /* ন্যাভবার বড় না করে লোগো হালকা বড়-ছোট করার জন্য */
+    transform: scale(1.40); /* ১.১৫ দিলে লোগোটি ন্যাভবারকে বড় না করে ১৫% বড় দেখাবে */
+    
+    transition: 0.3s ease; 
 }
 
 .custom-navbar .nav-link {
-    color: rgba(255,255,255,0.8); 
+    color: rgba(255, 255, 255, 0.8); 
     font-weight: 500; 
     margin: 0 5px; 
     transition: 0.3s;
@@ -895,7 +901,7 @@ body.dark-mode .map-section iframe {
    11. FOOTER
 ========================================= */
 .footer { 
-    background-color: rgba(35, 69, 64, 1) !important; 
+    background-color: rgb(26, 71, 65) !important; 
     color: #ffffff !important; 
 }
 
