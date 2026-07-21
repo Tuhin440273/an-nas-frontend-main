@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next'; // ট্রান্সলেশন ইম্পোর্ট করা হলো
 
 const Activities = () => {
+    const { t } = useTranslation(); // হুক কল করা হলো
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {
@@ -23,9 +25,9 @@ const Activities = () => {
             {/* Header Section */}
             <header className="page-header d-flex align-items-center mb-5" style={{ background: "linear-gradient(rgba(0, 106, 78, 0.85), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover", height: "300px" }}>
                 <div className="container text-center text-white">
-                    <h1 className="display-4 fw-bold">Our Activities</h1>
+                    <h1 className="display-4 fw-bold">{t('act_header_title')}</h1>
                     <p className="lead mx-auto mt-2" style={{ maxWidth: "700px" }}>
-                        মাঠপর্যায়ে আমাদের নিয়মিত কার্যক্রম এবং প্রজেক্টসমূহের আপডেট। আপনাদের অনুদান কীভাবে মানুষের মুখে হাসি ফোটাচ্ছে তা নিজেই দেখুন।
+                        {t('act_header_sub')}
                     </p>
                 </div>
             </header>
@@ -67,7 +69,7 @@ const Activities = () => {
                                     />
                                     
                                     <button className="btn btn-outline-success w-100 py-2 fw-bold mt-auto rounded-3">
-                                        বিস্তারিত পড়ুন <i className="fa-solid fa-arrow-right ms-2"></i>
+                                        {t('act_btn_read_more')} <i className="fa-solid fa-arrow-right ms-2"></i>
                                     </button>
                                 </div>
                             </div>

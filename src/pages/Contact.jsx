@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useTranslation } from 'react-i18next'; // ট্রান্সলেশন ইম্পোর্ট করা হলো
 
 const Contact = () => {
+    const { t } = useTranslation(); // হুক কল করা হলো
+
     // State to manage form inputs
     const [formData, setFormData] = useState({
         name: '',
-        phone: '', // Added for Laravel validation
+        phone: '', 
         email: '',
         subject: '',
         message: ''
@@ -35,7 +38,7 @@ const Contact = () => {
                 // Show success message
                 Swal.fire({
                     icon: 'success',
-                    title: 'Message Sent!',
+                    title: t('swal_msg_sent'),
                     text: response.data.message,
                     confirmButtonColor: '#006a4e'
                 });
@@ -47,8 +50,8 @@ const Contact = () => {
             console.error("Contact Error:", error);
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: 'Failed to send message. Please try again.',
+                title: t('swal_error_title'), // আগের পেজগুলোতে বানানো ছিল (Oops...)
+                text: t('swal_msg_failed'),
             });
         } finally {
             setLoading(false);
@@ -60,8 +63,8 @@ const Contact = () => {
             {/* Header Section */}
             <header className="page-header d-flex align-items-center" style={{ background: "linear-gradient(rgba(0, 106, 78, 0.85), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover", height: "300px" }}>
                 <div className="container text-center text-white">
-                    <h1 className="display-4 fw-bold" data-lang="contact_header_title">Contact Us</h1>
-                    <p className="lead mx-auto" style={{ maxWidth: "600px" }} data-lang="contact_header_sub">Have questions or want to get involved? We would love to hear from you.</p>
+                    <h1 className="display-4 fw-bold">{t('contact_header_title')}</h1>
+                    <p className="lead mx-auto" style={{ maxWidth: "600px" }}>{t('contact_header_sub')}</p>
                 </div>
             </header>
 
@@ -72,16 +75,16 @@ const Contact = () => {
                         
                         {/* Contact Information Cards */}
                         <div className="col-lg-5">
-                            <h2 className="fw-bold theme-text mb-4" data-lang="contact_info_title">Get in Touch</h2>
-                            <p className="theme-text-muted mb-5" data-lang="contact_info_desc">Whether you want to donate, volunteer, or partner with us, feel free to drop a message or visit our office.</p>
+                            <h2 className="fw-bold theme-text mb-4">{t('contact_info_title')}</h2>
+                            <p className="theme-text-muted mb-5">{t('contact_info_desc')}</p>
                             
                             <div className="contact-info-card d-flex align-items-center mb-4 p-3 rounded-3 theme-card shadow-sm border-0">
                                 <div className="icon-wrapper bg-light text-primary-custom rounded-circle d-flex align-items-center justify-content-center me-3" style={{ width: "50px", height: "50px", fontSize: "20px" }}>
                                     <i className="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div>
-                                    <h5 className="fw-bold theme-text mb-1" data-lang="contact_office">Office Address</h5>
-                                    <p className="theme-text-muted mb-0">kha-12/2,(3rd Floor), progoti Soroni, Shajadpur, Gulshan, Dhaka-1212, Bangladesh</p>
+                                    <h5 className="fw-bold theme-text mb-1">{t('contact_office')}</h5>
+                                    <p className="theme-text-muted mb-0">{t('contact_office_addr')}</p>
                                 </div>
                             </div>
 
@@ -90,9 +93,10 @@ const Contact = () => {
                                     <i className="fa-solid fa-phone"></i>
                                 </div>
                                 <div>
-                                    <h5 className="fw-bold theme-text mb-1" data-lang="contact_phone">Phone Number</h5>
+                                    <h5 className="fw-bold theme-text mb-1">{t('contact_phone')}</h5>
                                     <p className="theme-text-muted mb-0">+880 1713990042</p>
                                     <p className="theme-text-muted mb-0">+880 1818861685</p>
+                                    <p className="theme-text-muted mb-0">+880 1714962854</p>
                                 </div> 
                                 
                             </div>
@@ -102,12 +106,12 @@ const Contact = () => {
                                     <i className="fa-solid fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <h5 className="fw-bold theme-text mb-1" data-lang="contact_email">Email Address</h5>
+                                    <h5 className="fw-bold theme-text mb-1">{t('contact_email')}</h5>
                                     <p className="theme-text-muted mb-0">info.annaswelfarefoundation@gmail.com</p>
                                 </div>
                             </div>
 
-                            <h5 className="fw-bold theme-text mt-5 mb-3" data-lang="contact_social">Follow Us</h5>
+                            <h5 className="fw-bold theme-text mt-5 mb-3">{t('contact_social')}</h5>
                             <div className="d-flex gap-3">
                                 <a href="https://www.facebook.com/share/1BoH6pn7P5" className="social-icon-btn"><i className="fa-brands fa-facebook-f"></i></a>
                                 <a href="https://www.linkedin.com/company/annas-welfare-foundation" className="social-icon-btn"><i className="fa-brands fa-linkedin-in"></i></a>
@@ -120,27 +124,27 @@ const Contact = () => {
                         {/* Contact Form */}
                         <div className="col-lg-7">
                             <div className="card theme-card border-0 shadow-lg p-4 p-md-5 rounded-4 h-100">
-                                <h3 className="fw-bold theme-text mb-4" data-lang="contact_form_title">Send Us a Message</h3>
+                                <h3 className="fw-bold theme-text mb-4">{t('contact_form_title')}</h3>
                                 <form onSubmit={handleSubmit}>
                                     <div className="row g-3">
                                         <div className="col-md-6">
-                                            <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-control theme-input py-3" required placeholder="Your Name" />
+                                            <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-control theme-input py-3" required placeholder={t('form_your_name')} />
                                         </div>
                                         <div className="col-md-6">
-                                            <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="form-control theme-input py-3" required placeholder="Your Phone Number" />
+                                            <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="form-control theme-input py-3" required placeholder={t('form_your_phone')} />
                                         </div>
                                         <div className="col-md-6">
-                                            <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control theme-input py-3" required placeholder="Your Email" />
+                                            <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control theme-input py-3" required placeholder={t('form_your_email')} />
                                         </div>
                                         <div className="col-md-6">
-                                            <input type="text" name="subject" value={formData.subject} onChange={handleChange} className="form-control theme-input py-3" required placeholder="Subject" />
+                                            <input type="text" name="subject" value={formData.subject} onChange={handleChange} className="form-control theme-input py-3" required placeholder={t('form_subject')} />
                                         </div>
                                         <div className="col-md-12">
-                                            <textarea name="message" value={formData.message} onChange={handleChange} className="form-control theme-input py-3" rows="5" required placeholder="Write your message here..."></textarea>
+                                            <textarea name="message" value={formData.message} onChange={handleChange} className="form-control theme-input py-3" rows="5" required placeholder={t('form_message')}></textarea>
                                         </div>
                                         <div className="col-12 mt-4">
                                             <button type="submit" className="btn btn-primary-custom w-100 py-3 fs-5 fw-bold" disabled={loading}>
-                                                {loading ? 'Sending...' : 'Send Message'}
+                                                {loading ? t('btn_sending') : t('btn_send_msg')}
                                             </button>
                                         </div>
                                     </div>

@@ -1,15 +1,18 @@
 import React, { useState } from 'react'; 
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // ট্রান্সলেশন ইম্পোর্ট করা হলো
 
 const About = () => {
+    const { t } = useTranslation(); // হুক কল করা হলো
     const [activeTab, setActiveTab] = useState('service');
+    
     return (
         <main>
             {/* Hero Section */}
             <header className="about-hero-section d-flex align-items-center justify-content-center" style={{ background: "linear-gradient(rgba(0, 106, 78, 0.8), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover", height: "350px" }}>
                 <div className="container text-center text-white pb-4">
-                    <h1 className="display-4 fw-bold mb-3" data-lang="ab_header_title">About Us</h1>
-                    <p className="lead mx-auto" style={{ maxWidth: "600px" }} data-lang="ab_header_sub">Discover our inspiring journey and mission as an NGO, driven to make a positive impact on the world.</p>
+                    <h1 className="display-4 fw-bold mb-3">{t('ab_header_title')}</h1>
+                    <p className="lead mx-auto" style={{ maxWidth: "600px" }}>{t('ab_header_sub')}</p>
                 </div>
             </header>
 
@@ -19,11 +22,11 @@ const About = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-6 pe-lg-5 mb-5 mb-lg-0">
                             <h2 className="fw-bold mb-4 theme-text">
-                                <span className="highlight-underline" data-lang="ab_title">About Us</span>
+                                <span className="highlight-underline">{t('ab_title')}</span>
                             </h2>
-                            <h5 className="fw-bold mb-3 theme-text" data-lang="ab_subtitle">Embracing Humanity: A Tale of Warmth and True Support</h5>
-                            <p className="theme-text-muted mb-4" data-lang="ab_desc">With a caring heart and open arms, we strive to create a nurturing environment where individuals can find solace, understanding, and the strength to overcome life's challenges. Through genuine connections and unwavering dedication, we aim to make a positive impact, uplifting the spirits of those in need and fostering a sense of belonging within our community.</p>
-                            <Link to="/contact" className="btn btn-primary-custom px-4 py-2 fw-bold" data-lang="ab_btn">Contact Us</Link>
+                            <h5 className="fw-bold mb-3 theme-text">{t('ab_subtitle')}</h5>
+                            <p className="theme-text-muted mb-4">{t('ab_desc')}</p>
+                            <Link to="/contact" className="btn btn-primary-custom px-4 py-2 fw-bold">{t('ab_btn')}</Link>
                         </div>
                         <div className="col-lg-6 text-center">
                             <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Holding Hands" className="img-fluid about-side-img shadow-lg rounded-4" />
@@ -39,19 +42,19 @@ const About = () => {
                         <div className="row text-center g-4">
                             <div className="col-6 col-md-3">
                                 <h2 className="fw-bold text-white mb-1">৳50L+</h2>
-                                <p className="stats-label mb-0 text-light" data-lang="stat_1">RAISED DONATIONS</p>
+                                <p className="stats-label mb-0 text-light">{t('stat_1')}</p>
                             </div>
                             <div className="col-6 col-md-3">
                                 <h2 className="fw-bold text-white mb-1">300K</h2>
-                                <p className="stats-label mb-0 text-light" data-lang="stat_2">SAVING ONES</p>
+                                <p className="stats-label mb-0 text-light">{t('stat_2')}</p>
                             </div>
                             <div className="col-6 col-md-3">
                                 <h2 className="fw-bold text-white mb-1">1M+</h2>
-                                <p className="stats-label mb-0 text-light" data-lang="stat_3">COMMUNITY</p>
+                                <p className="stats-label mb-0 text-light">{t('stat_3')}</p>
                             </div>
                             <div className="col-6 col-md-3">
                                 <h2 className="fw-bold text-white mb-1">50K+</h2>
-                                <p className="stats-label mb-0 text-light" data-lang="stat_4">TARGET ACHIEVED</p>
+                                <p className="stats-label mb-0 text-light">{t('stat_4')}</p>
                             </div>
                         </div>
                     </div>
@@ -62,7 +65,7 @@ const About = () => {
             <section className="py-5 my-4 theme-bg-alt">
                 <div className="container py-4 text-center">
                     <h2 className="fw-bold mb-5 theme-text">
-                        <span className="highlight-underline" data-lang="helped_title">Helped till now</span>
+                        <span className="highlight-underline">{t('helped_title')}</span>
                     </h2>
                     
                     <div className="row g-4 text-start">
@@ -70,34 +73,35 @@ const About = () => {
                         <div className="col-md-4">
                             <div className="feature-box theme-card p-4 border-0 shadow-sm rounded-4 h-100 bg-white">
                                 <div className="icon-wrapper mb-3 text-success fs-1"><i className="fa-solid fa-handshake-angle"></i></div>
-                                <h5 className="fw-bold mb-3 theme-text" data-lang="feat_1_title">Helping humanity</h5>
-                                <p className="theme-text-muted" data-lang="feat_1_desc">Through education, healthcare, sustainable development, and emergency relief, we make a positive impact. Join us now</p>
+                                <h5 className="fw-bold mb-3 theme-text">{t('feat_1_title')}</h5>
+                                <p className="theme-text-muted">{t('feat_1_desc')}</p>
                             </div>
                         </div>
                         {/* Feature 2 (Active) */}
                         <div className="col-md-4">
                             <div className="feature-box active theme-card-active p-4 border-0 shadow-lg rounded-4 h-100 text-white" style={{ backgroundColor: "#006a4e" }}>
                                 <div className="icon-wrapper mb-3 text-warning fs-1"><i className="fa-solid fa-seedling"></i></div>
-                                <h5 className="fw-bold mb-3 text-white" data-lang="feat_2_title">Love your ecosystem</h5>
-                                <p className="text-light" data-lang="feat_2_desc">Through awaking people we're on a mission to inspire love and care for our environment to keep balance nature.</p>
+                                <h5 className="fw-bold mb-3 text-white">{t('feat_2_title')}</h5>
+                                <p className="text-light">{t('feat_2_desc')}</p>
                             </div>
                         </div>
                         {/* Feature 3 */}
                         <div className="col-md-4">
                             <div className="feature-box theme-card p-4 border-0 shadow-sm rounded-4 h-100 bg-white">
                                 <div className="icon-wrapper mb-3 text-success fs-1"><i className="fa-solid fa-users"></i></div>
-                                <h5 className="fw-bold mb-3 theme-text" data-lang="feat_3_title">Empowering Communities</h5>
-                                <p className="theme-text-muted" data-lang="feat_3_desc">Through strategic partnerships and dedicated volunteers, we've been able to swiftly respond to emergencies, offering shelter, food.</p>
+                                <h5 className="fw-bold mb-3 theme-text">{t('feat_3_title')}</h5>
+                                <p className="theme-text-muted">{t('feat_3_desc')}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            {/* Approvals & Certifications Section (অনুমোদনসমূহ) */}
+
+            {/* Approvals & Certifications Section */}
             <section className="py-5 bg-light-alt theme-bg-alt">
                 <div className="container py-4">
                     <div className="text-center mb-5">
-                        <h2 className="fw-bold theme-text">Approvals & Certifications</h2>
+                        <h2 className="fw-bold theme-text">{t('cert_title')}</h2>
                         <div className="mx-auto mt-2" style={{ height: "3px", width: "80px", backgroundColor: "#006a4e" }}></div>
                     </div>
 
@@ -112,9 +116,9 @@ const About = () => {
                                     style={{ height: '220px', objectFit: 'contain', padding: '10px', border: '1px solid #eef2f1' }}
                                 />
                                 <div className="card-body p-0 d-flex flex-column">
-                                    <h5 className="fw-bold theme-text mb-4 mt-2 fs-5">Registration Certificate</h5>
+                                    <h5 className="fw-bold theme-text mb-4 mt-2 fs-5">{t('cert_1_name')}</h5>
                                     <button className="btn w-100 fw-bold mt-auto" style={{ backgroundColor: '#eefcf5', color: '#006a4e', borderRadius: '8px', padding: '10px 0' }}>
-                                        <i className="fa-solid fa-download me-2"></i> Download
+                                        <i className="fa-solid fa-download me-2"></i> {t('btn_download')}
                                     </button>
                                 </div>
                             </div>
@@ -130,9 +134,9 @@ const About = () => {
                                     style={{ height: '220px', objectFit: 'contain', padding: '10px', border: '1px solid #eef2f1' }}
                                 />
                                 <div className="card-body p-0 d-flex flex-column">
-                                    <h5 className="fw-bold theme-text mb-4 mt-2 fs-5">ISO Certification</h5>
+                                    <h5 className="fw-bold theme-text mb-4 mt-2 fs-5">{t('cert_2_name')}</h5>
                                     <button className="btn w-100 fw-bold mt-auto" style={{ backgroundColor: '#eefcf5', color: '#006a4e', borderRadius: '8px', padding: '10px 0' }}>
-                                        <i className="fa-solid fa-download me-2"></i> Download
+                                        <i className="fa-solid fa-download me-2"></i> {t('btn_download')}
                                     </button>
                                 </div>
                             </div>
@@ -148,9 +152,9 @@ const About = () => {
                                     style={{ height: '220px', objectFit: 'contain', padding: '10px', border: '1px solid #eef2f1' }}
                                 />
                                 <div className="card-body p-0 d-flex flex-column">
-                                    <h5 className="fw-bold theme-text mb-4 mt-2 fs-5">Skill Development Affiliation</h5>
+                                    <h5 className="fw-bold theme-text mb-4 mt-2 fs-5">{t('cert_3_name')}</h5>
                                     <button className="btn w-100 fw-bold mt-auto" style={{ backgroundColor: '#eefcf5', color: '#006a4e', borderRadius: '8px', padding: '10px 0' }}>
-                                        <i className="fa-solid fa-download me-2"></i> Download
+                                        <i className="fa-solid fa-download me-2"></i> {t('btn_download')}
                                     </button>
                                 </div>
                             </div>
@@ -158,11 +162,12 @@ const About = () => {
                     </div>
                 </div>
             </section>
-            {/* Income-Expenditure Policy Section (আয়-ব্যয়ের নীতিমালা) */}
+
+            {/* Income-Expenditure Policy Section */}
             <section className="py-5 bg-white">
                 <div className="container py-4">
                     <div className="text-center mb-5">
-                        <h2 className="fw-bold theme-text">Income & Expenditure Policy</h2>
+                        <h2 className="fw-bold theme-text">{t('policy_title')}</h2>
                         <div className="mx-auto mt-2" style={{ height: "3px", width: "80px", backgroundColor: "#006a4e" }}></div>
                     </div>
 
@@ -172,19 +177,19 @@ const About = () => {
                             onClick={() => setActiveTab('income')} 
                             className={`btn rounded-pill px-4 py-2 fw-bold d-flex align-items-center ${activeTab === 'income' ? 'btn-success' : 'btn-outline-success'}`}
                             style={{ transition: "all 0.3s" }}>
-                            <i className="fa-solid fa-hand-holding-dollar me-2 fs-5"></i> Sources of Income
+                            <i className="fa-solid fa-hand-holding-dollar me-2 fs-5"></i> {t('tab_income')}
                         </button>
                         <button 
                             onClick={() => setActiveTab('service')} 
                             className={`btn rounded-pill px-4 py-2 fw-bold d-flex align-items-center ${activeTab === 'service' ? 'btn-success' : 'btn-outline-success'}`}
                             style={{ transition: "all 0.3s" }}>
-                            <i className="fa-solid fa-sack-dollar me-2 fs-5"></i> Service Expenditure
+                            <i className="fa-solid fa-sack-dollar me-2 fs-5"></i> {t('tab_service')}
                         </button>
                         <button 
                             onClick={() => setActiveTab('management')} 
                             className={`btn rounded-pill px-4 py-2 fw-bold d-flex align-items-center ${activeTab === 'management' ? 'btn-success' : 'btn-outline-success'}`}
                             style={{ transition: "all 0.3s" }}>
-                            <i className="fa-solid fa-users-gear me-2 fs-5"></i> Management Cost
+                            <i className="fa-solid fa-users-gear me-2 fs-5"></i> {t('tab_management')}
                         </button>
                     </div>
 
@@ -196,19 +201,19 @@ const About = () => {
                             <ul className="list-unstyled mb-0 fade-in-animation">
                                 <li className="d-flex mb-4">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">General voluntary donations (Sadaqah) from individuals and organizations.</span>
+                                    <span className="theme-text fs-5">{t('inc_1')}</span>
                                 </li>
                                 <li className="d-flex mb-4">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">Zakat funds collected specifically to be distributed among eligible beneficiaries.</span>
+                                    <span className="theme-text fs-5">{t('inc_2')}</span>
                                 </li>
                                 <li className="d-flex mb-4">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">Corporate Social Responsibility (CSR) funds provided by partner companies.</span>
+                                    <span className="theme-text fs-5">{t('inc_3')}</span>
                                 </li>
                                 <li className="d-flex">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">Dedicated funds raised for specific seasonal campaigns (e.g., Qurbani, Winter relief).</span>
+                                    <span className="theme-text fs-5">{t('inc_4')}</span>
                                 </li>
                             </ul>
                         )}
@@ -218,27 +223,27 @@ const About = () => {
                             <ul className="list-unstyled mb-0 fade-in-animation">
                                 <li className="d-flex mb-4">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">Donations are spent in accordance with Islamic Shariah principles and national laws.</span>
+                                    <span className="theme-text fs-5">{t('srv_1')}</span>
                                 </li>
                                 <li className="d-flex mb-4">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">Funds are spent strictly in the sector for which they were donated. Funds from one sector are not transferred to another.</span>
+                                    <span className="theme-text fs-5">{t('srv_2')}</span>
                                 </li>
                                 <li className="d-flex mb-4">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">100% of the Zakat fund is distributed among the rightful beneficiaries. Zakat money is never used for management purposes; general funds are used for that.</span>
+                                    <span className="theme-text fs-5">{t('srv_3')}</span>
                                 </li>
                                 <li className="d-flex mb-4">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">After the completion of each project, detailed income and expenditure accounts are maintained following international standards.</span>
+                                    <span className="theme-text fs-5">{t('srv_4')}</span>
                                 </li>
                                 <li className="d-flex mb-4">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">Once a year, the foundation's financial accounts are audited by a Chartered Accountant, and a report is published.</span>
+                                    <span className="theme-text fs-5">{t('srv_5')}</span>
                                 </li>
                                 <li className="d-flex">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">All financial activities of AN-NAS Foundation are strictly monitored under the supervision of a team comprising expert advisors.</span>
+                                    <span className="theme-text fs-5">{t('srv_6')}</span>
                                 </li>
                             </ul>
                         )}
@@ -248,15 +253,15 @@ const About = () => {
                             <ul className="list-unstyled mb-0 fade-in-animation">
                                 <li className="d-flex mb-4">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">Operational and administrative costs are kept to an absolute minimum to maximize beneficiary impact.</span>
+                                    <span className="theme-text fs-5">{t('mgt_1')}</span>
                                 </li>
                                 <li className="d-flex mb-4">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">Staff salaries, office rent, and utility bills are paid exclusively from the general fund (Sadaqah), NEVER from the Zakat fund.</span>
+                                    <span className="theme-text fs-5">{t('mgt_2')}</span>
                                 </li>
                                 <li className="d-flex">
                                     <i className="fa-solid fa-circle-check text-success fs-5 me-3 mt-1"></i>
-                                    <span className="theme-text fs-5">Marketing and promotional expenses are optimized and often sponsored by specific well-wishers to save organizational funds.</span>
+                                    <span className="theme-text fs-5">{t('mgt_3')}</span>
                                 </li>
                             </ul>
                         )}
