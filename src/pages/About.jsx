@@ -97,7 +97,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Approvals & Certifications Section */}
+{/* Approvals & Certifications Section */}
             <section className="py-5 bg-light-alt theme-bg-alt">
                 <div className="container py-4">
                     <div className="text-center mb-5">
@@ -106,62 +106,74 @@ const About = () => {
                     </div>
 
                     <div className="row g-4 justify-content-center">
-                        {/* Certificate 1 */}
+                        {/* Certificate 1 (Image with Modal + Download Link) */}
                         <div className="col-md-6 col-lg-4">
                             <div className="card h-100 shadow-sm border-0 rounded-4 text-center p-3" style={{ backgroundColor: "#ffffff" }}>
-                                <img
-                                    src="https://placehold.co/600x400/f8f9fa/a3a3a3?text=Registration+Certificate"
-                                    alt="Registration Certificate"
-                                    className="card-img-top rounded-3 mb-3"
-                                    style={{ height: '220px', objectFit: 'contain', padding: '10px', border: '1px solid #eef2f1' }}
-                                />
+                                
+                                {/* ক্লিক করলে বড় হওয়ার অংশ */}
+                                <div 
+                                    className="overflow-hidden rounded-3 mb-3 position-relative"
+                                    style={{ cursor: 'pointer', border: '1px solid #eef2f1' }}
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#certificateModal1"
+                                    title="Click to view full size"
+                                >
+                                    <img
+                                        src="/docs/registration-certificate.png" // আপনার আসল ছবির লিংক এখানে দেবেন
+                                        alt="Registration Certificate"
+                                        className="card-img-top img-fluid"
+                                        style={{ height: '220px', objectFit: 'contain', padding: '10px', transition: 'transform 0.3s ease' }}
+                                        onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                                        onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                        onError={(e) => { e.target.src = 'https://placehold.co/600x800/f8f9fa/a3a3a3?text=Registration+Certificate' }}
+                                    />
+                                    {/* ছবির উপরে ছোট্ট একটি জুম আইকন */}
+                                    <div className="position-absolute top-50 start-50 translate-middle text-success opacity-75" style={{ pointerEvents: 'none' }}>
+                                        <i className="fa-solid fa-magnifying-glass-plus fa-2x"></i>
+                                    </div>
+                                </div>
+
                                 <div className="card-body p-0 d-flex flex-column">
                                     <h5 className="fw-bold theme-text mb-4 mt-2 fs-5">{t('cert_1_name')}</h5>
-                                    <button className="btn w-100 fw-bold mt-auto" style={{ backgroundColor: '#eefcf5', color: '#006a4e', borderRadius: '8px', padding: '10px 0' }}>
-                                        <i className="fa-solid fa-download me-2"></i> {t('btn_download')}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Certificate 2 */}
-                        <div className="col-md-6 col-lg-4">
-                            <div className="card h-100 shadow-sm border-0 rounded-4 text-center p-3" style={{ backgroundColor: "#ffffff" }}>
-                                <img
-                                    src="https://placehold.co/600x400/f8f9fa/a3a3a3?text=ISO+Certificate"
-                                    alt="ISO Certificate"
-                                    className="card-img-top rounded-3 mb-3"
-                                    style={{ height: '220px', objectFit: 'contain', padding: '10px', border: '1px solid #eef2f1' }}
-                                />
-                                <div className="card-body p-0 d-flex flex-column">
-                                    <h5 className="fw-bold theme-text mb-4 mt-2 fs-5">{t('cert_2_name')}</h5>
-                                    <button className="btn w-100 fw-bold mt-auto" style={{ backgroundColor: '#eefcf5', color: '#006a4e', borderRadius: '8px', padding: '10px 0' }}>
-                                        <i className="fa-solid fa-download me-2"></i> {t('btn_download')}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Certificate 3 */}
-                        <div className="col-md-6 col-lg-4">
-                            <div className="card h-100 shadow-sm border-0 rounded-4 text-center p-3" style={{ backgroundColor: "#ffffff" }}>
-                                <img
-                                    src="https://placehold.co/600x400/f8f9fa/a3a3a3?text=Skill+Development"
-                                    alt="Skill Development Certificate"
-                                    className="card-img-top rounded-3 mb-3"
-                                    style={{ height: '220px', objectFit: 'contain', padding: '10px', border: '1px solid #eef2f1' }}
-                                />
-                                <div className="card-body p-0 d-flex flex-column">
-                                    <h5 className="fw-bold theme-text mb-4 mt-2 fs-5">{t('cert_3_name')}</h5>
-                                    <button className="btn w-100 fw-bold mt-auto" style={{ backgroundColor: '#eefcf5', color: '#006a4e', borderRadius: '8px', padding: '10px 0' }}>
-                                        <i className="fa-solid fa-download me-2"></i> {t('btn_download')}
-                                    </button>
+                                    <a 
+                                        href="/docs/registration-certificate.pdf" // পিডিএফ ডাউনলোডের লিংক
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="btn w-100 fw-bold mt-auto d-block" 
+                                        style={{ backgroundColor: '#eefcf5', color: '#006a4e', borderRadius: '8px', padding: '10px 0', textDecoration: 'none' }}
+                                    >
+                                        <i className="fa-solid fa-download me-2"></i> {t('btn_download')} (PDF)
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            {/* Certificate 1 Image Modal (বড় করে দেখানোর জন্য) */}
+            <div className="modal fade" id="certificateModal1" tabIndex="-1" aria-hidden="true">
+                <div className="modal-dialog modal-lg modal-dialog-centered">
+                    <div className="modal-content bg-transparent border-0">
+                        <div className="modal-header border-0 pb-0 justify-content-end">
+                            {/* ক্লোজ বাটন */}
+                            <button type="button" className="btn btn-light rounded-circle shadow-sm" data-bs-dismiss="modal" aria-label="Close" style={{ width: '40px', height: '40px' }}>
+                                <i className="fa-solid fa-xmark text-dark"></i>
+                            </button>
+                        </div>
+                        <div className="modal-body text-center p-0">
+                            {/* এখানেও আপনার ছবির লিংকটি দেবেন */}
+                            <img 
+                                src="/docs/registration-certificate.png" 
+                                alt="Registration Certificate Large" 
+                                className="img-fluid rounded-4 shadow-lg"
+                                style={{ maxHeight: '85vh', objectFit: 'contain', backgroundColor: '#fff', padding: '15px' }}
+                                onError={(e) => { e.target.src = 'https://placehold.co/600x800/f8f9fa/a3a3a3?text=Registration+Certificate' }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* Income-Expenditure Policy Section */}
             <section className="py-5 bg-white">
