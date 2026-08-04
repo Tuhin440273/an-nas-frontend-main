@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // কম্পোনেন্টগুলো ইমপোর্ট করা
 import Header from './components/Header';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Donation from './pages/Donation';
@@ -33,10 +34,12 @@ function App() {
        <Route path="/activities" element={<Activities />} />
        <Route path="/gallery" element={<Gallery />} />
        <Route path="/news" element={<News />} />
+       
       </Routes>
 
       {/* Footer সব পেজের নিচে থাকবে */}
       <Footer />
+      <WhatsAppButton />
     </Router>
   );
 }
